@@ -1,12 +1,12 @@
-# Crowi
+# ruby-crowi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/crowi`. To experiment with that code, run `bin/console` for an interactive prompt.
+A ruby client for [Crowi](http://site.crowi.wiki/) API.
 
-TODO: Delete this and the text above, and describe your gem
+ruby-crowi supports up to [v1.6.2](https://github.com/crowi/crowi/releases/tag/v1.6.2).
+
+**Crowi API is experimental.**
 
 ## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'crowi'
@@ -22,7 +22,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "crowi"
+
+client = Crowi::Client.new(base_url: "<your_crowi_url>", access_token: "<access_token>")
+
+# Pages API
+client.page(page_id)
+client.pages(path, user, offset)
+client.create_page(path, body)
+client.update_page(page_id, body)
+
+# Comments API
+client.comments(page_id)
+client.add_comment(page_id, comment, revision_id)
+
+# Attachments API
+client.attachments(page_id)
+client.add_attachment(page_id, filepath, content_type)
+```
 
 ## Development
 
@@ -32,7 +50,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/crowi.
+Bug reports and pull requests are welcome on GitHub at https://github.com/h-kishi/ruby-crowi.
 
 
 ## License

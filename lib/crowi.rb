@@ -1,5 +1,7 @@
-require "crowi/version"
+require 'faraday'
+require 'faraday_middleware'
 
-module Crowi
-  # Your code goes here...
-end
+require 'crowi/version'
+require 'crowi/client'
+require 'crowi/response'
+require 'crowi/api_methods'
